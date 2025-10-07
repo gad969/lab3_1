@@ -21,7 +21,7 @@ jobs:
       - name: "Run tests and code coverage analysis"
         run: pytest --html=${{ env.PYTEST_REPORT_PATH }} --self-contained-html
       - name: "Archive pytest reports"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{!cancelled()}}
         with:
           name: "Test and reports"
@@ -35,7 +35,7 @@ jobs:
       - name: "Checkout repository"
         uses: actions/checkout@v3
       - name: "Publish package as artifact"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: "Built package"
           path: "src"
